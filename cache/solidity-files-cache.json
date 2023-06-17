@@ -1,0 +1,40 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "/Users/denis/dev/crowdf/src/contracts/Crowdfunding.sol": {
+      "lastModificationDate": 1686781334193,
+      "contentHash": "14f0e8d3ee1e556085b618ff48a6f77f",
+      "sourceName": "src/contracts/Crowdfunding.sol",
+      "solcConfig": {
+        "version": "0.8.11",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.7"
+      ],
+      "artifacts": [
+        "Crowdfunding"
+      ]
+    }
+  }
+}
