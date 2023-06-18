@@ -13,17 +13,6 @@ const ProjectDetails = ({ project }) => {
     const [connectedAccount] = useGlobalState('connectedAccount')
     const expired = new Date().getTime() > Number(project?.expiresAt + '000')
 
-    const [copySuccess, setCopySuccess] = useState('')
-    const textAreaRef = useRef(null)
-
-    function copyToClipboard(e) {
-        textAreaRef.current.select()
-        document.execCommand('copy')
-        // This is just personal preference.
-        // I prefer to not show the whole text area selected.
-        e.target.focus()
-        setCopySuccess('Copied!')
-    }
     return (
         <div className='pt-24 mb-5 px-6 flex justify-center'>
             <div className='flex justify-center flex-col md:w-2/3'>
@@ -58,23 +47,24 @@ const ProjectDetails = ({ project }) => {
                                     size={15}
                                 />
                                 {project?.owner ? (
-                                    <h1
-                                        ref={textAreaRef}
-                                        className='text-gray-700'
-                                    >
+                                    <h1 className='text-gray-700'>
                                         {truncate(project?.owner, 11)}
                                     </h1>
                                 ) : null}
-                                <div>
-                                    <button onClick={copyToClipboard}>
-                                        Copy
-                                    </button>
-                                    {copySuccess}
-                                </div>
-                                <small className='text-gray-500 font-bold'>
+                                <button
+                                    className='bg-transparent hover:bg-purple-200 text-gray-400 font-semibold hover:text-white py-1 px-1 border border-gray-200 hover:border-transparent rounded'
+                                    onClick={() =>
+                                        navigator.clipboard.writeText(
+                                            truncate(project?.owner, 11)
+                                        )
+                                    }
+                                >
+                                    📋
+                                </button>
+                                <h1 className='text-gray-500 font-bold'>
                                     {project?.backers} Backer
                                     {project?.backers == 1 ? '' : 's'}
-                                </small>
+                                </h1>
                             </div>
 
                             <div className='font-bold'>
